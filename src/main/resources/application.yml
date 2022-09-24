@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: customers
+  profiles:
+    active: production
+
+# ACTUATOR INFO
+info:
+  app:
+    name: "Customers"
+    version: "0.0.1"
+    profile: ${spring.profiles.active}
+  serverInfo:
+    port: ${server.port}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+eureka:
+  client: ${eureka-client}
+  instance:
+    prefer-ip-address: true
